@@ -5,6 +5,9 @@ import "./App.css";
 import Greeting from "./componets/Greeting";
 import UserView from "./componets/userDetail";
 import CityDetailView from "./componets/CityDetails";
+import Conatiner from "./componets/container";
+import List from "./componets/ListView";
+import UserTable from "./componets/UserTable";
 
 function App() {
   const nanded = {
@@ -22,8 +25,13 @@ function App() {
     population: "50cr",
     popularPlace: "india way of gate",
   };
+  const user = { name: "john", age: 28 };
   return (
     <>
+      <UserTable />
+      <h1>{user.name}</h1>
+      <p>{user.age}</p>
+
       <Greeting data="mazhar"></Greeting>
       <Greeting data="mohammad" />
       <Greeting />
@@ -39,6 +47,56 @@ function App() {
 
       <CityDetailView detail={nanded} />
       <CityDetailView detail={mumbai} />
+
+      {/* children props */}
+      <Conatiner>
+        <table>
+          <tr>
+            <th>name</th>
+            <th>address</th>
+          </tr>
+          <tr>
+            <td>john</td>
+            <td>new york</td>
+          </tr>
+          <tr>
+            <td>junaid</td>
+            <td>india</td>
+          </tr>
+        </table>
+      </Conatiner>
+
+      <Conatiner>
+        <form action="">
+          <label htmlFor=""> name</label>
+          <input type="text" name="" id="" />
+          <br />
+          <label htmlFor=""> email</label>
+          <input type="text" name="" id="" />
+        </form>
+      </Conatiner>
+
+      <Conatiner>
+        <ol>
+          <li>react</li>
+          <li>javascript</li>
+          <li>html</li>
+        </ol>
+      </Conatiner>
+
+      <List>
+        <li>mango</li>
+        <li>banana</li>
+        <li>apple</li>
+      </List>
+
+      <List>
+        <li>nanded</li>
+        <li>mumbai</li>
+        <li>hyd</li>
+        <li>koljkata</li>
+        <li>delhi</li>
+      </List>
     </>
   );
 }

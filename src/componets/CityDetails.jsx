@@ -1,8 +1,15 @@
 import { Card, Button } from "react-bootstrap";
 
-const CityDetailView = ({ detail={} }) => {
+const CityDetailView = ({ detail = {}, sum }) => {
   //   console.log(detail)
-  const { name, state="undefined", code, popularPlace, population, img } = detail;
+  const {
+    name,
+    state = "undefined",
+    code,
+    popularPlace,
+    population,
+    img,
+  } = detail;
   return (
     <>
       <Card style={{ width: "18rem", backgroundColor: "" }}>
