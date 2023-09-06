@@ -1,7 +1,10 @@
 const Events = () => {
+
+
   const clk = () => {
     console.log("click on button");
   };
+
   const mouseover = () => {
     console.log("mouse over on h1");
   };
@@ -9,13 +12,14 @@ const Events = () => {
   const abc = (e) => {
     console.log(e.target.value);
   };
+  
 
   return (
     <>
       <button
         onClick={clk}
-        onMouseLeave={() => {
-          console.log("mouse Leave");
+        onMouseLeave={()=>{
+
         }}
       >
         click me
