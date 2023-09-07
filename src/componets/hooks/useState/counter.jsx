@@ -1,17 +1,25 @@
 import { useState } from "react";
 
 export const Counter = () => {
-  const [count, setCount] = useState(0);
-  
-  function click() {
-    setCount(count+1);
-  }
+  const [counter, setCounter] = useState(0);
+
+  const increment = () => {
+    if (counter < 10) {
+      setCounter(counter + 1);
+    }
+  };
+
+  const decrement = () => {
+    if (counter > 0) {
+      setCounter(counter - 1);
+    }
+  };
 
   return (
     <div>
-      <h1>{count}</h1>
-      <button onClick={click}>increment +</button>
-      <button>decrement -</button>
+      <h1>{counter}</h1>
+      <button onClick={increment}>increment +</button>
+      <button onClick={decrement}>decrement -</button>
     </div>
   );
 };
