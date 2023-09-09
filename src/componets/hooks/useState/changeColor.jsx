@@ -6,6 +6,7 @@ export const ChangeColor = () => {
   const onOver = () => {
     setColor("red");
   };
+
   const onLeave = () => {
     setColor("pink");
   };
