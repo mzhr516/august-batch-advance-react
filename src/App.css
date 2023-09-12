@@ -13,5 +13,13 @@
   background-color: thistle;
   border: 2px solid black;
   margin-bottom: 20px;
+}
 
+.model-container {
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  background-color: violet;
+  width: 80%;
+  height: 80vh;
 }

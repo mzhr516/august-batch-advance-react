@@ -9,9 +9,10 @@ export const AddRectangle = () => {
 
   return (
     <div>
-      {rectangle.map(() => {
+      {rectangle.map((value,index) => {
         return (
           <div
+            key={index}
             style={{
               width: "250px",
               height: "150px",

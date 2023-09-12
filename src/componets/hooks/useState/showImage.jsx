@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 
 export const ShowImage = () => {
-
   const [visible, setVisible] = useState(false);
-  
+
   const onShowHide = () => {
     setVisible(!visible);
 

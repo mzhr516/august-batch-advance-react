@@ -2,11 +2,15 @@ import { useState } from "react";
 
 export const Counter = () => {
   const [counter, setCounter] = useState(0);
-
+  console.log("hii");
   const increment = () => {
-    if (counter < 10) {
-      setCounter(counter + 1);
-    }
+    // setCounter(counter + 1);
+    // setCounter(counter + 1);
+    // setCounter(counter + 1);
+
+    setCounter((prev) => prev + 1);
+    setCounter((prev) => prev + 1);
+    setCounter((prev) => prev + 1);
   };
 
   const decrement = () => {
