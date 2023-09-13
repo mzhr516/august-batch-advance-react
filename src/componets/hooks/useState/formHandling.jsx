@@ -16,7 +16,7 @@ export const FormHandling = () => {
 
   const submit = (e) => {
     e.preventDefault();
-
+    // validation for userNAme field
     if (formData.userName.length <= 0) {
       console.log("enter username");
       setErrorMsg((prev) => {
@@ -27,7 +27,7 @@ export const FormHandling = () => {
         return { ...prev, userName: "" };
       });
     }
-
+    // validation for email field
     if (formData.email.length <= 0) {
       setErrorMsg((prev) => {
         return { ...prev, email: "enter your email" };
@@ -37,7 +37,7 @@ export const FormHandling = () => {
         return { ...prev, email: "" };
       });
     }
-
+    // validation for password field
     if (formData.password.length <= 0) {
       setErrorMsg((prev) => {
         return { ...prev, password: "enter your password" };
