@@ -38,7 +38,7 @@ function App() {
       <div style={{ width: "50%", marginLeft: "10%", marginTop: "20px" }}>
         <FormHandling />
         <br />
-        <FormHandling2 />
+        {/* <FormHandling2 /> */}
       </div>
     </div>
   );

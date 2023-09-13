@@ -10,18 +10,34 @@ export const FormHandling2 = () => {
     DOB: "",
     add: "",
   });
-  console.log(formData);
+
+  const submit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    setFormData({
+      lan: "",
+      fName: "",
+      LName: "",
+      gender: "",
+      email: "",
+      DOB: "",
+      add: "",
+    });
+  };
+
   return (
     <div>
       <h1>personal details</h1>
-      <form>
+      <form onSubmit={submit}>
         <div>
-          <label> langauge</label>
+          <label>langauge</label>
           <br />
           <select
             onChange={(e) => {
               setFormData({ ...formData, lan: e.target.value });
             }}
+            value={formData.lan}
+            required
           >
             <option value="">select lan</option>
             <option value="hindi">hindi</option>
@@ -37,6 +53,8 @@ export const FormHandling2 = () => {
             onChange={(e) => {
               setFormData({ ...formData, fName: e.target.value });
             }}
+            value={formData.fName}
+            required
           />
         </div>
         <br />
@@ -47,6 +65,8 @@ export const FormHandling2 = () => {
             onChange={(e) => {
               setFormData({ ...formData, LName: e.target.value });
             }}
+            value={formData.LName}
+            required
           />
         </div>
         <br />
@@ -59,6 +79,8 @@ export const FormHandling2 = () => {
             onChange={(e) => {
               setFormData({ ...formData, gender: e.target.value });
             }}
+            checked={formData.gender === "male"}
+            required
           />
           male
           <input
@@ -68,6 +90,8 @@ export const FormHandling2 = () => {
             onChange={(e) => {
               setFormData({ ...formData, gender: e.target.value });
             }}
+            checked={formData.gender === "female"}
+            required
           />
           female
         </div>
@@ -79,6 +103,8 @@ export const FormHandling2 = () => {
             onChange={(e) => {
               setFormData({ ...formData, email: e.target.value });
             }}
+            value={formData.email}
+            required
           />
         </div>
         <br />
@@ -89,6 +115,8 @@ export const FormHandling2 = () => {
             onChange={(e) => {
               setFormData({ ...formData, DOB: e.target.value });
             }}
+            value={formData.DOB}
+            required
           />
         </div>
         <br />
@@ -100,10 +128,12 @@ export const FormHandling2 = () => {
             onChange={(e) => {
               setFormData({ ...formData, add: e.target.value });
             }}
+            value={formData.add}
+            required
           ></textarea>
         </div>
         <br />
-        <button>submit</button>
+        <button type="submit">submit</button>
       </form>
     </div>
   );
