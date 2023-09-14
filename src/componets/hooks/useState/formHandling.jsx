@@ -14,6 +14,11 @@ export const FormHandling = () => {
   });
   console.log(errorMsg);
 
+  const Emailpattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+  const passwordPattern =
+    /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+
   const submit = (e) => {
     e.preventDefault();
     // validation for userNAme field
@@ -27,10 +32,15 @@ export const FormHandling = () => {
         return { ...prev, userName: "" };
       });
     }
+    
     // validation for email field
     if (formData.email.length <= 0) {
       setErrorMsg((prev) => {
         return { ...prev, email: "enter your email" };
+      });
+    } else if (Emailpattern.test(formData.email) === false) {
+      setErrorMsg((prev) => {
+        return { ...prev, email: "enter valid email" };
       });
     } else {
       setErrorMsg((prev) => {
@@ -42,7 +52,25 @@ export const FormHandling = () => {
       setErrorMsg((prev) => {
         return { ...prev, password: "enter your password" };
       });
-    } else {
+    } else if (passwordPattern.test(formData.password) === false) {
+      setErrorMsg((prev) => {
+        return { ...prev, password: "enter valid password" };
+      });
+    }
+    // else if (formData.password.length > 10) {
+    //   setErrorMsg((prev) => {
+    //     return {
+    //       ...prev,
+    //       password: "password does not greater than 10 charectors",
+    //     };
+    //   });
+    // }
+    // else if (formData.password.length < 6) {
+    //   setErrorMsg((prev) => {
+    //     return { ...prev, password: "password must be atleast 6 charectors" };
+    //   });
+    // }
+    else {
       setErrorMsg((prev) => {
         return { ...prev, password: "" };
       });
