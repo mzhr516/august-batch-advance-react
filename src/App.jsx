@@ -12,6 +12,7 @@ import { Counter } from "./componets/hooks/useState/counter";
 import { FormHandling } from "./componets/hooks/useState/formHandling";
 import { FormHandling2 } from "./componets/hooks/useState/FormHandling2";
 import { FormHandlingWithLib } from "./componets/hooks/useState/formHandlingWithLib";
+import { ValidationWithLib } from "./componets/hooks/useState/ValidationWithLib";
 
 function App() {
   return (
@@ -37,12 +38,14 @@ function App() {
       <br />
       <ModelContainer /> */}
       <div style={{ width: "50%", marginLeft: "10%", marginTop: "20px" }}>
-      {/* <h1> custom validation</h1>
+        {/* <h1> custom validation</h1>
         <FormHandling /> */}
         <br />
         <h1>validation with library</h1>
-        <FormHandlingWithLib/>
+        {/* <FormHandlingWithLib/> */}
         {/* <FormHandling2 /> */}
+
+        <ValidationWithLib />
       </div>
     </div>
   );

@@ -74,8 +74,8 @@ export const FormHandling2 = () => {
           <label htmlFor="">gender:</label>
           <input
             type="radio"
-            name="gender"
             value="male"
+            name="gender"
             onChange={(e) => {
               setFormData({ ...formData, gender: e.target.value });
             }}
