@@ -13,6 +13,8 @@ import { FormHandling } from "./componets/hooks/useState/formHandling";
 import { FormHandling2 } from "./componets/hooks/useState/FormHandling2";
 import { FormHandlingWithLib } from "./componets/hooks/useState/formHandlingWithLib";
 import { ValidationWithLib } from "./componets/hooks/useState/ValidationWithLib";
+import { Parent } from "./componets/hooks/useEffect/parent";
+import { Example1 } from "./componets/hooks/useEffect/example1";
 
 function App() {
   return (
@@ -41,11 +43,14 @@ function App() {
         {/* <h1> custom validation</h1>
         <FormHandling /> */}
         <br />
-        <h1>validation with library</h1>
+        {/* <h1>validation with library</h1> */}
         {/* <FormHandlingWithLib/> */}
         {/* <FormHandling2 /> */}
 
-        <ValidationWithLib />
+        {/* <ValidationWithLib /> */}
+
+        {/* <Parent/> */}
+        <Example1/>
       </div>
     </div>
   );

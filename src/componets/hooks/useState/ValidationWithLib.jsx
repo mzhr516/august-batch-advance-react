@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form";
 
 export const ValidationWithLib = () => {
   const { register, handleSubmit, formState } = useForm();
-  const { errors } = formState;
   
+  const { errors } = formState;
+
   console.log(errors);
 
   const submit = (data) => {
