@@ -15,6 +15,7 @@ import { FormHandlingWithLib } from "./componets/hooks/useState/formHandlingWith
 import { ValidationWithLib } from "./componets/hooks/useState/ValidationWithLib";
 import { Parent } from "./componets/hooks/useEffect/parent";
 import { Example1 } from "./componets/hooks/useEffect/example1";
+import { CrudOperations } from "./componets/CRUD/CurdOpt";
 
 function App() {
   return (
@@ -50,7 +51,8 @@ function App() {
         {/* <ValidationWithLib /> */}
 
         {/* <Parent/> */}
-        <Example1/>
+        {/* <Example1/> */}
+        <CrudOperations/>
       </div>
     </div>
   );
