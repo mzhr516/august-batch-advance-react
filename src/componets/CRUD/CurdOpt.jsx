@@ -4,22 +4,44 @@ import { useForm } from "react-hook-form";
 
 export const CrudOperations = () => {
   const [users, setUsers] = useState([]);
-  console.log(users);
-  const { register, handleSubmit, reset } = useForm();
-  const submit = (userData) => {
-    // console.log(data);
-    setUsers([...users, userData]);
-    reset();
-  };
-  const onDelete = (userIndex) => { // 0
+  const [editable, setEditable] = useState(false);
+  const [editableIndex, setEditableIndex] = useState(null);
 
-    const newArr = users.filter((value, index) => { // 0,1
-      if (userIndex !== index) { //  0 !== 1
+  const { register, handleSubmit, reset } = useForm();
+
+  const submit = (userData) => {
+    if (editable === false) {
+      setUsers([...users, userData]);
+    } else {
+      const newArr = users.map((value, index) => {
+        if (index === editableIndex) {
+          return userData;
+        } else {
+          return value;
+        }
+      });
+      setUsers(newArr);
+      setEditable(false);
+    }
+
+    reset({ name: "", age: "", address: "", gender: "" });
+  };
+
+  const onDelete = (userIndex) => {
+    const newArr = users.filter((value, index) => {
+      if (userIndex !== index) {
         return value;
       }
     });
     setUsers(newArr);
   };
+
+  const onEdit = (user, index) => {
+    reset(user); // popupute data in form
+    setEditable(true); // to change the form behaviour
+    setEditableIndex(index); // to compare the users from existing list
+  };
+
   return (
     <div>
       <div>
@@ -63,7 +85,7 @@ export const CrudOperations = () => {
           </Form.Group>
 
           <Button variant="primary" type="submit">
-            Submit
+            {editable ? "Update" : "Add"}
           </Button>
         </Form>
       </div>
@@ -90,6 +112,7 @@ export const CrudOperations = () => {
                   <td>{address}</td>
                   <td>
                     <Button onClick={() => onDelete(index)}>Delete</Button>
+                    <Button onClick={() => onEdit(value, index)}>edit</Button>
                   </td>
                 </tr>
               );
