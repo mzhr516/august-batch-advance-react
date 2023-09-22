@@ -4,24 +4,26 @@ import { useForm } from "react-hook-form";
 
 export const CrudOperations = () => {
   const [users, setUsers] = useState([]);
-  const [editable, setEditable] = useState(false);
-  const [editableIndex, setEditableIndex] = useState(null);
-
+  const [EditIndex, setEditIndex] = useState(null); // null // numeric
+  console.log(users);
   const { register, handleSubmit, reset } = useForm();
 
   const submit = (userData) => {
-    if (editable === false) {
+    if (EditIndex === null) {
       setUsers([...users, userData]);
-    } else {
+    }
+    if (EditIndex != null) {
       const newArr = users.map((value, index) => {
-        if (index === editableIndex) {
+        if (EditIndex === index) {
+          // 0 === 1
           return userData;
         } else {
           return value;
         }
       });
       setUsers(newArr);
-      setEditable(false);
+      setEditIndex(null);
+      console.log("edit user");
     }
 
     reset({ name: "", age: "", address: "", gender: "" });
@@ -35,13 +37,10 @@ export const CrudOperations = () => {
     });
     setUsers(newArr);
   };
-
-  const onEdit = (user, index) => {
-    reset(user); // popupute data in form
-    setEditable(true); // to change the form behaviour
-    setEditableIndex(index); // to compare the users from existing list
+  const onEdit = (userDetail, index) => {
+    reset(userDetail);
+    setEditIndex(index);
   };
-
   return (
     <div>
       <div>
@@ -85,7 +84,7 @@ export const CrudOperations = () => {
           </Form.Group>
 
           <Button variant="primary" type="submit">
-            {editable ? "Update" : "Add"}
+            Add{" "}
           </Button>
         </Form>
       </div>
@@ -111,8 +110,9 @@ export const CrudOperations = () => {
                   <td>{age}</td>
                   <td>{address}</td>
                   <td>
-                    <Button onClick={() => onDelete(index)}>Delete</Button>
-                    <Button onClick={() => onEdit(value, index)}>edit</Button>
+                    <Button onClick={() => onDelete(index)}>Delete</Button>{" "}
+                    {"   "}
+                    <Button onClick={() => onEdit(value, index)}>Edit</Button>
                   </td>
                 </tr>
               );
