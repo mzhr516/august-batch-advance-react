@@ -23,3 +23,12 @@
   width: 80%;
   height: 80vh;
 }
+
+input {
+  width: 100px;
+  transition: ease-in-out, width 0.35s ease-in-out;
+}
+
+input:focus {
+  width: 250px;
+}

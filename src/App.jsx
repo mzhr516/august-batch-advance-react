@@ -16,10 +16,26 @@ import { ValidationWithLib } from "./componets/hooks/useState/ValidationWithLib"
 import { Parent } from "./componets/hooks/useEffect/parent";
 import { Example1 } from "./componets/hooks/useEffect/example1";
 import { CrudOperations } from "./componets/CRUD/CurdOpt";
+import { UseCase } from "./componets/hooks/useRef/example";
+import { UseCase2 } from "./componets/hooks/useRef/example1";
+import { useRef } from "react";
+import { UseCase1 } from "./componets/hooks/usemomo/Example1";
 
 function App() {
+  const bottomRef = useRef();
+  const topRef = useRef();
+  const bottom = () => {
+    bottomRef.current.scrollIntoView();
+  };
+  const top = () => {
+    topRef.current.scrollIntoView()
+  };
   return (
     <div>
+      {/* <button ref={topRef} onClick={bottom}>
+        to bottom
+      </button> */}
+
       {/* <Props /> */}
       {/* <Counter />
       <br />
@@ -45,15 +61,24 @@ function App() {
         <FormHandling /> */}
         <br />
         {/* <h1>validation with library</h1> */}
-        {/* <FormHandlingWithLib/> */}
-        {/* <FormHandling2 /> */}
+        {/* <FormHandlingWithLib />
+        <FormHandling2 />
 
-        {/* <ValidationWithLib /> */}
+        <ValidationWithLib />
 
-        {/* <Parent/> */}
-        {/* <Example1/> */}
-        <CrudOperations/>
-        {/* <ModelContainer/> */}
+        <Parent />
+        <Example1 />
+        <CrudOperations />
+        <ModelContainer />
+        <UseCase />
+        <UseCase2 /> */}
+
+
+
+        {/* <button ref={bottomRef} onClick={top}>
+          to top
+        </button> */}
+        <UseCase1/>
       </div>
     </div>
   );
