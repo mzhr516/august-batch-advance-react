@@ -20,6 +20,7 @@ import { UseCase } from "./componets/hooks/useRef/example";
 import { UseCase2 } from "./componets/hooks/useRef/example1";
 import { useRef } from "react";
 import { UseCase1 } from "./componets/hooks/usemomo/Example1";
+import { ParentElement } from "./componets/hooks/usecallback/parent";
 
 function App() {
   const bottomRef = useRef();
@@ -78,7 +79,8 @@ function App() {
         {/* <button ref={bottomRef} onClick={top}>
           to top
         </button> */}
-        <UseCase1/>
+        {/* <UseCase1/> */}
+        <ParentElement/>
       </div>
     </div>
   );
